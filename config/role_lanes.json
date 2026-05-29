@@ -1,0 +1,402 @@
+{
+  "abbreviations": {
+    "sr": "senior",
+    "sr.": "senior",
+    "jr": "junior",
+    "jr.": "junior",
+    "ba": "business analyst",
+    "bsa": "business systems analyst",
+    "pm": "project manager",
+    "tpm": "technical program manager",
+    "apm": "associate product manager",
+    "fp&a": "financial planning and analysis",
+    "grc": "governance risk compliance",
+    "pmo": "project management office",
+    "gtm": "go to market",
+    "revops": "revenue operations",
+    "mktg": "marketing",
+    "ops": "operations",
+    "infosec": "information security",
+    "cybersec": "cybersecurity",
+    "impl": "implementation",
+    "mgmt": "management",
+    "assoc": "associate",
+    "coord": "coordinator",
+    "ldp": "leadership development program",
+    "it": "information technology"
+  },
+  "lanes": [
+    {
+      "id": 1,
+      "lane": "Business Analyst",
+      "track": "analyst",
+      "canonical_titles": ["Business Analyst", "Senior Business Analyst", "Business Systems Analyst", "Business Analyst II", "Business Analyst III"],
+      "required_keywords": ["business", "analyst"],
+      "boost_keywords": ["requirements", "process", "stakeholder", "reporting"],
+      "negative_keywords": ["business development", "bdr", "sdr"]
+    },
+    {
+      "id": 2,
+      "lane": "Data Analyst",
+      "track": "analyst",
+      "canonical_titles": ["Data Analyst", "Analytics Analyst", "Reporting Analyst", "Data Analyst II"],
+      "required_keywords": ["analyst"],
+      "boost_keywords": ["sql", "dashboard", "visualization", "power bi", "tableau", "reporting"],
+      "negative_keywords": ["data engineer", "data scientist"]
+    },
+    {
+      "id": 3,
+      "lane": "Operations Analyst",
+      "track": "analyst",
+      "canonical_titles": ["Operations Analyst", "Business Operations Analyst", "Ops Analyst"],
+      "required_keywords": ["operations", "analyst"],
+      "boost_keywords": ["process", "efficiency", "metrics"],
+      "negative_keywords": ["sales operations"]
+    },
+    {
+      "id": 4,
+      "lane": "Strategy Analyst",
+      "track": "analyst",
+      "canonical_titles": ["Strategy Analyst", "Strategic Analyst", "Corporate Strategy Analyst", "Strategic Finance Analyst"],
+      "required_keywords": ["strateg"],
+      "title_must_contain_any": ["analyst", "finance", "associate"],
+      "boost_keywords": ["business", "market", "competitive", "growth"],
+      "negative_keywords": ["partner manager", "partner lead"]
+    },
+    {
+      "id": 5,
+      "lane": "Financial Analyst",
+      "track": "analyst",
+      "canonical_titles": ["Financial Analyst", "FP&A Analyst", "Finance Analyst", "Financial Planning Analyst"],
+      "required_keywords": ["financ", "analyst"],
+      "boost_keywords": ["forecasting", "budgeting", "modeling", "planning"],
+      "negative_keywords": ["accounting", "accountant", "bookkeep", "tax"]
+    },
+    {
+      "id": 6,
+      "lane": "Revenue Operations Analyst",
+      "track": "analyst",
+      "canonical_titles": ["Revenue Operations Analyst", "Sales Operations Analyst", "GTM Analyst", "RevOps Analyst", "Go-To-Market Analyst"],
+      "required_keywords": ["analyst"],
+      "boost_keywords": ["revenue", "sales ops", "gtm", "pipeline", "crm", "salesforce"],
+      "negative_keywords": []
+    },
+    {
+      "id": 7,
+      "lane": "Product Analyst",
+      "track": "analyst",
+      "canonical_titles": ["Product Analyst", "Product Operations Analyst"],
+      "required_keywords": ["product", "analyst"],
+      "boost_keywords": ["metrics", "ab test", "user", "feature"],
+      "negative_keywords": ["product manager", "product designer"]
+    },
+    {
+      "id": 8,
+      "lane": "Marketing Operations Analyst",
+      "track": "analyst",
+      "canonical_titles": ["Marketing Operations Analyst", "Marketing Analyst", "Marketing Analytics Analyst"],
+      "required_keywords": ["market", "analyst"],
+      "boost_keywords": ["campaign", "attribution", "growth", "automation"],
+      "negative_keywords": ["social media manager"]
+    },
+    {
+      "id": 9,
+      "lane": "Process Analyst",
+      "track": "analyst",
+      "canonical_titles": ["Process Analyst", "Process Improvement Analyst", "Business Process Analyst"],
+      "required_keywords": ["process"],
+      "boost_keywords": ["bpmn", "lean", "six sigma", "improvement", "automation"],
+      "negative_keywords": []
+    },
+    {
+      "id": 10,
+      "lane": "Insights Analyst",
+      "track": "analyst",
+      "canonical_titles": ["Insights Analyst", "Customer Insights Analyst", "Consumer Insights Analyst"],
+      "required_keywords": ["insights", "analyst"],
+      "boost_keywords": ["customer", "consumer", "research", "survey"],
+      "negative_keywords": []
+    },
+    {
+      "id": 11,
+      "lane": "Research Analyst",
+      "track": "analyst",
+      "canonical_titles": ["Research Analyst", "Market Research Analyst"],
+      "required_keywords": ["research", "analyst"],
+      "boost_keywords": ["market", "competitive", "industry"],
+      "negative_keywords": ["clinical research", "lab", "scientific"]
+    },
+    {
+      "id": 12,
+      "lane": "Strategy & Operations",
+      "track": "strategy_ops",
+      "canonical_titles": ["Strategy & Operations Associate", "Strategy & Operations Analyst", "Strategy and Operations"],
+      "required_keywords": ["strateg", "operations"],
+      "boost_keywords": ["business", "cross-functional", "initiative"],
+      "negative_keywords": []
+    },
+    {
+      "id": 13,
+      "lane": "Chief of Staff",
+      "track": "strategy_ops",
+      "canonical_titles": ["Chief of Staff", "Junior Chief of Staff", "Associate Chief of Staff"],
+      "required_keywords": ["chief of staff"],
+      "boost_keywords": ["executive", "strategic", "cross-functional"],
+      "negative_keywords": ["cto", "cfo", "ceo"]
+    },
+    {
+      "id": 14,
+      "lane": "Business Operations Associate",
+      "track": "strategy_ops",
+      "canonical_titles": ["Business Operations Associate", "Business Operations Coordinator"],
+      "required_keywords": ["business", "operations"],
+      "boost_keywords": ["process", "analytics", "reporting"],
+      "negative_keywords": []
+    },
+    {
+      "id": 15,
+      "lane": "Strategic Initiatives",
+      "track": "strategy_ops",
+      "canonical_titles": ["Strategic Initiatives Analyst", "Strategic Initiatives Associate", "Special Projects Analyst"],
+      "required_keywords": ["strateg"],
+      "boost_keywords": ["initiative", "project", "special", "transformation"],
+      "negative_keywords": []
+    },
+    {
+      "id": 16,
+      "lane": "Transformation Analyst",
+      "track": "strategy_ops",
+      "canonical_titles": ["Transformation Analyst", "Business Transformation Associate", "Digital Transformation Analyst"],
+      "required_keywords": ["transformation"],
+      "boost_keywords": ["business", "digital", "change", "process"],
+      "negative_keywords": []
+    },
+    {
+      "id": 17,
+      "lane": "Consulting Analyst",
+      "track": "consulting",
+      "canonical_titles": ["Consulting Analyst", "Associate Consultant", "Analyst Consultant"],
+      "required_keywords": ["consult"],
+      "boost_keywords": ["client", "engagement", "advisory", "strategy"],
+      "negative_keywords": ["sales consultant", "beauty consultant", "leasing consultant"]
+    },
+    {
+      "id": 18,
+      "lane": "Management Consultant",
+      "track": "consulting",
+      "canonical_titles": ["Management Consultant", "Business Consultant", "Strategy Consultant"],
+      "required_keywords": ["consult"],
+      "boost_keywords": ["management", "strategy", "advisory", "client"],
+      "negative_keywords": ["sales consultant", "beauty consultant", "leasing consultant"]
+    },
+    {
+      "id": 19,
+      "lane": "Technology Consultant",
+      "track": "consulting",
+      "canonical_titles": ["Technology Consultant", "IT Consultant", "Digital Consultant"],
+      "required_keywords": ["consult"],
+      "boost_keywords": ["technology", "digital", "systems", "implementation"],
+      "negative_keywords": ["sales consultant", "beauty consultant"]
+    },
+    {
+      "id": 20,
+      "lane": "Implementation Consultant",
+      "track": "consulting",
+      "canonical_titles": ["Implementation Consultant", "Implementation Analyst", "Implementation Specialist"],
+      "required_keywords": ["implementation"],
+      "boost_keywords": ["consultant", "client", "configuration", "deployment"],
+      "negative_keywords": []
+    },
+    {
+      "id": 21,
+      "lane": "Solutions Consultant",
+      "track": "consulting",
+      "canonical_titles": ["Solutions Consultant", "Solutions Analyst"],
+      "required_keywords": ["solution"],
+      "boost_keywords": ["analyst", "consultant", "technical", "client"],
+      "negative_keywords": ["pre-sales", "sales engineer", "account executive"]
+    },
+    {
+      "id": 22,
+      "lane": "Functional Consultant",
+      "track": "consulting",
+      "canonical_titles": ["Functional Consultant", "SAP Consultant", "Workday Consultant", "Oracle Consultant", "ServiceNow Consultant"],
+      "required_keywords": ["consultant"],
+      "boost_keywords": ["sap", "workday", "oracle", "servicenow", "functional", "erp", "hcm"],
+      "negative_keywords": []
+    },
+    {
+      "id": 23,
+      "lane": "GRC Analyst",
+      "track": "cybersecurity",
+      "canonical_titles": ["GRC Analyst", "Governance Risk Compliance Analyst", "GRC Specialist"],
+      "required_keywords": ["grc"],
+      "boost_keywords": ["governance", "risk", "compliance", "nist", "iso", "sox"],
+      "negative_keywords": []
+    },
+    {
+      "id": 24,
+      "lane": "Cybersecurity Analyst",
+      "track": "cybersecurity",
+      "canonical_titles": ["Cybersecurity Analyst", "Information Security Analyst", "Security Analyst", "Cyber Analyst"],
+      "required_keywords": ["security", "analyst"],
+      "boost_keywords": ["cyber", "threat", "vulnerability", "siem", "nist", "incident"],
+      "negative_keywords": ["physical security", "security guard", "security officer"]
+    },
+    {
+      "id": 25,
+      "lane": "IT Risk Analyst",
+      "track": "cybersecurity",
+      "canonical_titles": ["IT Risk Analyst", "Technology Risk Analyst", "Information Risk Analyst"],
+      "required_keywords": ["risk", "analyst"],
+      "boost_keywords": ["technology", "it", "information", "controls", "audit"],
+      "negative_keywords": ["credit risk", "market risk", "insurance"]
+    },
+    {
+      "id": 26,
+      "lane": "Third-Party Risk Analyst",
+      "track": "cybersecurity",
+      "canonical_titles": ["Third-Party Risk Analyst", "Vendor Risk Analyst", "Third Party Risk Management"],
+      "required_keywords": ["risk"],
+      "boost_keywords": ["vendor", "third-party", "third party", "supply chain", "due diligence"],
+      "negative_keywords": []
+    },
+    {
+      "id": 27,
+      "lane": "Compliance Analyst",
+      "track": "cybersecurity",
+      "canonical_titles": ["Compliance Analyst", "IT Compliance Analyst", "Regulatory Compliance Analyst"],
+      "required_keywords": ["compliance", "analyst"],
+      "boost_keywords": ["regulatory", "audit", "sox", "gdpr", "hipaa", "pci"],
+      "negative_keywords": ["hr compliance"]
+    },
+    {
+      "id": 28,
+      "lane": "Security Operations Analyst",
+      "track": "cybersecurity",
+      "canonical_titles": ["Security Operations Analyst", "SOC Analyst", "Security Operations Center Analyst"],
+      "required_keywords": ["security"],
+      "boost_keywords": ["soc", "operations", "incident", "monitoring", "siem"],
+      "negative_keywords": ["physical security"]
+    },
+    {
+      "id": 29,
+      "lane": "IT Audit Analyst",
+      "track": "cybersecurity",
+      "canonical_titles": ["Audit Analyst", "IT Audit Analyst", "Internal Audit Analyst", "IT Auditor"],
+      "required_keywords": ["audit"],
+      "boost_keywords": ["it", "technology", "controls", "sox", "internal"],
+      "negative_keywords": ["financial audit"]
+    },
+    {
+      "id": 30,
+      "lane": "Risk & Controls Analyst",
+      "track": "cybersecurity",
+      "canonical_titles": ["Risk & Controls Analyst", "Controls Analyst", "Risk Analyst"],
+      "required_keywords": ["risk"],
+      "boost_keywords": ["controls", "assessment", "framework", "mitigation"],
+      "negative_keywords": ["credit risk", "market risk", "insurance risk"]
+    },
+    {
+      "id": 31,
+      "lane": "Cyber Risk Consultant",
+      "track": "cybersecurity",
+      "canonical_titles": ["Cyber Risk Consultant", "Security Consultant", "Cybersecurity Consultant"],
+      "required_keywords": ["security", "consult"],
+      "boost_keywords": ["cyber", "risk", "advisory", "assessment"],
+      "negative_keywords": ["physical security"]
+    },
+    {
+      "id": 32,
+      "lane": "Program Manager",
+      "track": "pm",
+      "canonical_titles": ["Program Manager", "Program Coordinator"],
+      "required_keywords": ["program"],
+      "boost_keywords": ["manager", "coordinator", "cross-functional", "stakeholder"],
+      "negative_keywords": ["software engineer", "developer"]
+    },
+    {
+      "id": 33,
+      "lane": "Project Manager",
+      "track": "pm",
+      "canonical_titles": ["Project Manager", "Technical Project Manager", "IT Project Manager"],
+      "required_keywords": ["project", "manager"],
+      "boost_keywords": ["agile", "scrum", "technical", "stakeholder"],
+      "negative_keywords": ["construction", "civil"]
+    },
+    {
+      "id": 34,
+      "lane": "Project Analyst",
+      "track": "pm",
+      "canonical_titles": ["Project Analyst", "Program Analyst"],
+      "required_keywords": ["project", "analyst"],
+      "boost_keywords": ["program", "pmo", "reporting", "tracking"],
+      "negative_keywords": []
+    },
+    {
+      "id": 35,
+      "lane": "PMO Analyst",
+      "track": "pm",
+      "canonical_titles": ["PMO Analyst", "PMO Coordinator", "PMO Specialist"],
+      "required_keywords": ["pmo"],
+      "boost_keywords": ["project management", "reporting", "governance", "portfolio"],
+      "negative_keywords": []
+    },
+    {
+      "id": 36,
+      "lane": "Scrum Master",
+      "track": "pm",
+      "canonical_titles": ["Scrum Master", "Agile Coach", "Agile Scrum Master"],
+      "required_keywords": ["scrum"],
+      "boost_keywords": ["agile", "sprint", "kanban", "jira"],
+      "negative_keywords": []
+    },
+    {
+      "id": 37,
+      "lane": "Associate Product Manager",
+      "track": "product",
+      "canonical_titles": ["Associate Product Manager", "Product Operations", "Product Operations Manager"],
+      "required_keywords": ["product"],
+      "title_must_contain_any": ["associate", "operations", "apm", "product operations"],
+      "boost_keywords": ["associate", "operations", "roadmap", "stakeholder"],
+      "negative_keywords": ["product designer", "product engineer", "product marketing"]
+    },
+    {
+      "id": 38,
+      "lane": "Technical Program Manager",
+      "track": "product",
+      "canonical_titles": ["Technical Program Manager", "TPM"],
+      "required_keywords": ["technical", "program"],
+      "boost_keywords": ["manager", "cross-functional", "engineering", "roadmap"],
+      "negative_keywords": []
+    },
+    {
+      "id": 39,
+      "lane": "Solutions Analyst",
+      "track": "product",
+      "canonical_titles": ["Solutions Analyst", "Pre-Sales Analyst", "Sales Engineer Analyst"],
+      "required_keywords": ["solution", "analyst"],
+      "boost_keywords": ["technical", "client", "requirements"],
+      "negative_keywords": []
+    },
+    {
+      "id": 40,
+      "lane": "Rotational Program",
+      "track": "rotational",
+      "canonical_titles": ["Rotational Analyst", "Leadership Development Program", "Associate Development Program", "Analyst Development Program", "Management Trainee", "Graduate Program", "Early Career Program"],
+      "required_keywords": [],
+      "title_must_contain_any": ["rotational", "rotation", "development program", "ldp", "trainee", "graduate program", "early career", "new grad", "analyst program", "associate program", "accelerator"],
+      "boost_keywords": ["rotational", "rotation", "leadership development", "early career", "new grad", "graduate program", "development program", "analyst program", "associate program", "trainee", "ldp"],
+      "negative_keywords": ["internship", "intern"]
+    },
+    {
+      "id": 41,
+      "lane": "Special Projects Analyst",
+      "track": "strategy_ops",
+      "canonical_titles": ["Special Projects Analyst", "Special Projects Associate", "Strategic Projects Analyst"],
+      "required_keywords": ["special", "project"],
+      "boost_keywords": ["strategic", "initiative", "cross-functional"],
+      "negative_keywords": []
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+# Candidate Profile — used by the AI evaluator for deep job scoring.
+# Copy this file to `profile.yml` and fill in your own background.
+# `profile.yml` is gitignored so your details are never published.
+
+candidate:
+  full_name: "Your Name"
+  location: "City, ST"
+  visa_status: "Needs H1B sponsorship"
+  timezone: "EST"
+
+education:
+  - degree: "MS Field (Concentration)"
+    school: "University Name"
+    year: 2026
+    status: "current"
+  - degree: "BS Field"
+    school: "University Name"
+    year: 2022
+
+experience:
+  total_years: 2.5
+  roles:
+    - title: "Your Title"
+      company: "Company"
+      duration: "~2.5 years"
+      domain: "Domain area, e.g. operations analytics, consulting"
+      highlights:
+        - "Key accomplishment one"
+        - "Key accomplishment two"
+
+skills:
+  technical:
+    - "Tool / language one"
+    - "Tool / language two"
+  domain:
+    - "Domain skill one"
+  soft:
+    - "Stakeholder management"
+
+target_roles:
+  primary:
+    - "Business Analyst"
+    - "Data Analyst"
+    - "Operations Analyst"
+  secondary:
+    - "Project Manager / Coordinator"
+    - "Implementation Analyst"
+  stretch:
+    - "Associate Product Manager"
+    - "Rotational / Leadership Development Program"
+
+evaluation:
+  # Scoring weights (must sum to 1.0)
+  weights:
+    cv_match: 0.35
+    north_star: 0.25
+    sponsorship_likelihood: 0.20
+    seniority_fit: 0.10
+    culture_signals: 0.10
+  thresholds:
+    strong_match: 4.0
+    good_match: 3.5
+    decent_match: 3.0
+    skip: 2.9
+  red_flags:
+    - "5+ years required"
+    - "no sponsorship"
+    - "US citizens only"
+    - "security clearance required"
+    - "must be authorized to work"

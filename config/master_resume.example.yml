@@ -1,0 +1,57 @@
+# Master Resume — superset of all experience bullets, skills, and sections.
+# The AI tailor selects and rewrites from this pool per job.
+# Copy this file to `master_resume.yml` and fill in your own content.
+# `master_resume.yml` is gitignored so your resume data is never published.
+
+contact:
+  full_name: "Your Name"
+  location: "City, ST"
+  linkedin_url: "https://linkedin.com/in/your-handle"
+  linkedin_text: "LinkedIn"
+  phone: "555-555-5555"
+  email: "you@example.com"
+
+# Multiple summary variants — the AI picks the closest and adapts it per job.
+summary_variants:
+  strategy_ops: >-
+    One- to three-sentence positioning statement for strategy/operations roles.
+  analytics_default: >-
+    Default summary emphasizing analytics, dashboards, and data work.
+  cybersecurity: >-
+    Summary emphasizing security, risk, and GRC experience.
+  data_analyst: >-
+    Summary emphasizing data pipelines, forecasting, and reporting.
+
+# Work history. Each role has a pool of bullets; the tailor selects/edits.
+experience:
+  - title: "Your Title"
+    company: "Company"
+    location: "City, ST"
+    dates: "2021 – Present"
+    bullets:
+      - "Quantified accomplishment with a metric (e.g. reduced X by 15%)."
+      - "Cross-functional initiative you led and its outcome."
+      - "Tooling / technical work (e.g. built Power BI dashboards on SQL data)."
+
+education:
+  - degree: "MS Field (Concentration)"
+    school: "University Name"
+    location: "City, ST"
+    dates: "2024 – 2026"
+  - degree: "BS Field"
+    school: "University Name"
+    location: "City, ST"
+    dates: "2018 – 2022"
+
+# Skill pool — the tailor picks the subset relevant to each job.
+skills:
+  - "Power BI"
+  - "SQL"
+  - "Python"
+  - "Stakeholder management"
+
+# Optional projects the tailor may surface for relevant roles.
+projects:
+  - name: "Project Name"
+    bullets:
+      - "What it does and the tech/frameworks used."

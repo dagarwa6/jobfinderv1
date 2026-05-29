@@ -1,0 +1,37 @@
+# Applicant profile for auto-filling job applications.
+# Copy this file to `applicant_profile.yml` and fill in your own details.
+# `applicant_profile.yml` is gitignored so your PII is never published.
+
+personal:
+  first_name: "First"
+  last_name: "Last"
+  preferred_name: ""
+  email: "you@example.com"
+  phone: "555-555-5555"
+  phone_country_code: "+1"
+  location: "City, ST"
+
+links:
+  linkedin: "https://linkedin.com/in/your-handle"
+  website: ""
+  github: ""
+  portfolio: ""
+
+work_authorization:
+  authorized_us: "Yes"
+  sponsorship_required: "No"
+  visa_status: "F-1 OPT"
+
+demographics:
+  # Optional EEO fields — "Decline to self-identify" is always safe
+  gender: "Decline to self-identify"
+  race_ethnicity: "Decline to self-identify"
+  veteran_status: "I am not a protected veteran"
+  disability_status: "Decline to self-identify"
+
+standard_answers:
+  how_hear_about_job: "Company website"
+  willing_to_relocate: "Yes"
+  years_experience: "2"
+  education_level: "Master's Degree"
+  salary_expectation: ""  # leave blank — never auto-fill salary
