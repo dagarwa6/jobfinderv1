@@ -85,9 +85,21 @@ def main():
         move_feedback()
 
         start = time.time()
-        HARD_CAP = 5400  # 90 min — full pipeline averages ~60 min
+        HARD_CAP = 5400  # 90 min of AWAKE time — full pipeline averages ~60 min
+
+        # Wrap the scraper in `caffeinate` so the Mac can't idle/sleep mid-run.
+        # Without this, overnight runs span sleep cycles: wall-clock balloons to
+        # many hours and the monotonic-based HARD_CAP (which pauses during sleep)
+        # never fires. caffeinate holds the power assertion only while the child
+        # process lives, so it's automatically released when the run ends.
+        #   -i  prevent idle sleep   -m  prevent disk sleep   -s  prevent system sleep
+        caffeinate = "/usr/bin/caffeinate"
+        cmd = [str(VENV_PYTHON), "-m", "src.main"]
+        if Path(caffeinate).exists():
+            cmd = [caffeinate, "-i", "-m", "-s"] + cmd
+
         proc = subprocess.Popen(
-            [str(VENV_PYTHON), "-m", "src.main"],
+            cmd,
             cwd=str(PROJECT_DIR),
             env=os.environ.copy(),
         )
