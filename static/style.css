@@ -464,3 +464,16 @@ tr.hidden { display: none; }
 }
 .control-status.up { color: #16a34a; }
 .control-status.down { color: #9ca3af; }
+
+/* --- Live pipeline progress line in the toolbar --- */
+.run-progress {
+  font-size: 13px;
+  font-weight: 600;
+  color: #38bdf8;
+  font-variant-numeric: tabular-nums;
+}
+.run-progress.active { animation: progress-pulse 1.6s ease-in-out infinite; }
+@keyframes progress-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}

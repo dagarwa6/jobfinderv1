@@ -338,7 +338,24 @@
   const runBtn = document.getElementById('runPipelineBtn');
   const cleanupBtn = document.getElementById('cleanupBtn');
   const controlStatus = document.getElementById('controlStatus');
+  const runProgress = document.getElementById('runProgress');
   let serverUp = false;
+
+  // Tidy the raw log line into something readable for the toolbar.
+  function formatProgress(p) {
+    if (!p) return '';
+    // "[ashby] Progress: 1400/3179 companies scraped" -> "Ashby 1400/3179"
+    let m = p.match(/\[(\w+)\]\s*Progress:\s*([\d]+\/[\d]+)/i);
+    if (m) return m[1].charAt(0).toUpperCase() + m[1].slice(1) + ' ' + m[2];
+    m = p.match(/\[(\w+)\]\s*Done:/i);
+    if (m) return m[1].charAt(0).toUpperCase() + m[1].slice(1) + ' done';
+    if (/AI evaluating/i.test(p)) return 'AI evaluating…';
+    if (/AI evaluation complete/i.test(p)) return 'AI eval done';
+    if (/Passed filters/i.test(p)) return 'Filtering…';
+    if (/Dashboard:/i.test(p)) return 'Writing dashboard…';
+    if (/Scraping (\w+)/i.test(p)) return 'Scraping ' + RegExp.$1;
+    return p.slice(0, 60);
+  }
 
   function setControlStatus(up, detail) {
     serverUp = up;
@@ -369,8 +386,19 @@
         runBtn.textContent = s.running ? '⏳ Running…' : '▶ Run Pipeline';
         runBtn.disabled = s.running;
       }
+      if (runProgress) {
+        if (s.running) {
+          const label = formatProgress(s.progress);
+          runProgress.textContent = label ? '↻ ' + label : '↻ working…';
+          runProgress.classList.add('active');
+        } else {
+          runProgress.textContent = '';
+          runProgress.classList.remove('active');
+        }
+      }
     } catch {
       setControlStatus(false);
+      if (runProgress) { runProgress.textContent = ''; runProgress.classList.remove('active'); }
     }
   }
 
