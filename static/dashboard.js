@@ -340,6 +340,7 @@
   const controlStatus = document.getElementById('controlStatus');
   const runProgress = document.getElementById('runProgress');
   let serverUp = false;
+  let wasRunning = false;  // tracks running->finished transitions for auto-reload
 
   // Tidy the raw log line into something readable for the toolbar.
   function formatProgress(p) {
@@ -396,6 +397,19 @@
           runProgress.classList.remove('active');
         }
       }
+
+      // Auto-reload when a run we saw running has just finished, so the
+      // "Generated" header + table refresh to the new results on their own.
+      if (wasRunning && !s.running) {
+        showToast('✓ New results ready — reloading…', 2500);
+        setTimeout(() => {
+          // Load the canonical latest.html (handles the case where a stale
+          // timestamped dashboard file is open).
+          try { location.href = new URL('latest.html', location.href).href; }
+          catch { location.reload(); }
+        }, 1800);
+      }
+      wasRunning = s.running;
     } catch {
       setControlStatus(false);
       if (runProgress) { runProgress.textContent = ''; runProgress.classList.remove('active'); }
