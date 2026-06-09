@@ -37,16 +37,38 @@ SCRAPER_LOG = PROJECT_DIR / "logs" / "scraper.log"
 LOCK_FILE = PROJECT_DIR / ".scraper.lock"
 
 
+def _lock_pid_alive() -> bool:
+    """True only if .scraper.lock names a PID that is actually alive.
+
+    The lock alone is NOT a reliable 'running' signal — a crashed/killed run
+    can leave it behind, which previously made /status report running forever.
+    """
+    try:
+        pid = int(LOCK_FILE.read_text().strip())
+    except (OSError, ValueError):
+        return False
+    try:
+        os.kill(pid, 0)  # signal 0 = existence check, doesn't kill
+        return True
+    except OSError:
+        return False
+
+
 def _pipeline_running() -> bool:
-    """True if a scraper process is currently alive."""
+    """True if a scraper process is currently alive.
+
+    Process-based detection is authoritative; we never treat a stale lock
+    file as 'running'. On any pgrep error we fall back to a *verified* lock
+    PID (one that's actually alive), never mere lock existence.
+    """
     try:
         out = subprocess.run(
-            ["pgrep", "-f", "python -m src.main"],
+            ["/usr/bin/pgrep", "-f", "python -m src.main"],
             capture_output=True, text=True, timeout=5,
         )
         return out.returncode == 0 and bool(out.stdout.strip())
     except Exception:
-        return LOCK_FILE.exists()
+        return _lock_pid_alive()
 
 
 def _last_progress() -> str:
