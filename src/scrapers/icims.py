@@ -27,7 +27,7 @@ logger = logging.getLogger(__name__)
 
 PAGE_SIZE = 50
 MAX_PAGES = 30  # cap at 1500 postings per company
-DETAIL_CONCURRENCY = 6
+DETAIL_CONCURRENCY = 4  # lowered from 6 to cap peak threads/FDs (errno 11 fix)
 DETAIL_DELAY = 0.3
 
 # Cheap title pre-filter (same idea as Workday). Federal contractors post a

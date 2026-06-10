@@ -24,7 +24,7 @@ TITLE_PREFILTER_TOKENS = {
 }
 
 # Concurrency for detail-page (description) fetches per company.
-DETAIL_CONCURRENCY = 8
+DETAIL_CONCURRENCY = 4  # lowered from 8 to cap peak threads/FDs (errno 11 fix)
 DETAIL_DELAY = 0.4
 
 

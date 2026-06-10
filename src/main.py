@@ -13,6 +13,12 @@ from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
+# NOTE on '[Errno 11] Resource deadlock avoided': macOS caps processes+threads
+# per uid (kern.maxprocperuid, ~1392 here) and RLIMIT_NPROC can't be raised
+# above it without root. The mitigation is to keep peak concurrency low — see
+# max_concurrent_per_platform (settings.toml) and DETAIL_CONCURRENCY in the
+# Workday/iCIMS scrapers — so the run stays well under that ceiling.
+
 from rich.console import Console
 from rich.logging import RichHandler
 from rich.table import Table
