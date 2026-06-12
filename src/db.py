@@ -145,8 +145,17 @@ class JobDB:
             "INSERT INTO run_log (started_at) VALUES (?)",
             (datetime.now().isoformat(),),
         )
+        run_id = cur.lastrowid
+        # Prune filter_log to the 3 most recent runs. It logs every rejected
+        # posting (~thousands/run) and previously grew unbounded — 1.2M rows /
+        # 140 MB — which bloated the DB and slowed startup. We only ever read
+        # the current run's rows, so keeping a small history is plenty.
+        self.conn.execute(
+            "DELETE FROM filter_log WHERE run_id < ?",
+            (run_id - 3,),
+        )
         self.conn.commit()
-        return cur.lastrowid
+        return run_id
 
     def finish_run(
         self, run_id: int, total_fetched: int, total_passed: int, total_new: int, errors: list[str]
