@@ -17,7 +17,12 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 import yaml
-from anthropic import AsyncAnthropic
+
+# NOTE: `anthropic` (and its heavy `pydantic` dependency) is imported lazily
+# inside AIScorer.__init__, NOT at module top. Importing it eagerly added 30s+
+# to pipeline *startup* under system load and stalled runs before any scraping
+# began. The SDK is only needed at the AI-evaluation step, which runs ~30 min
+# into a full run when the machine is calm.
 
 logger = logging.getLogger(__name__)
 
@@ -167,6 +172,8 @@ class AIScorer:
         if not self.api_key:
             raise ValueError("ANTHROPIC_API_KEY not set. Add it to .env or environment.")
         self.model = model
+        # Lazy import — keeps `anthropic`/`pydantic` off the pipeline startup path.
+        from anthropic import AsyncAnthropic
         self.client = AsyncAnthropic(api_key=self.api_key)
         self.profile = load_profile()
         self.profile_summary = build_profile_summary(self.profile)
