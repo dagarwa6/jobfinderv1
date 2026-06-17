@@ -315,6 +315,26 @@ async def run(platform_filter: str | None = None, verbose: bool = False,
     """
     setup_logging(verbose)
     logger = logging.getLogger(__name__)
+    # Emit a heartbeat as the very first action so a hung startup is visible in
+    # the log immediately (previously the first line came after DB/H1B init, so
+    # an early stall looked like a silent hang).
+    logger.info(f"=== Pipeline starting (pid={os.getpid()}) ===")
+
+    # Bound asyncio's default thread pool. Concurrent DNS resolution + httpx
+    # across 6 platforms can spawn enough threads to hit macOS pthread limits
+    # (errno 11 EDEADLK "resource deadlock avoided"). A small cap keeps total
+    # thread count well under the limit.
+    import concurrent.futures
+    loop = asyncio.get_running_loop()
+    loop.set_default_executor(
+        concurrent.futures.ThreadPoolExecutor(max_workers=16, thread_name_prefix="jobscraper")
+    )
+    # httpx async resolves DNS via anyio's thread pool; cap it too (default 40).
+    try:
+        from anyio import to_thread
+        to_thread.current_default_thread_limiter().total_tokens = 16
+    except Exception as e:
+        logger.debug(f"Could not cap anyio thread limiter: {e}")
 
     # Finding #1: Validate environment before expensive operations
     if not skip_ai:
