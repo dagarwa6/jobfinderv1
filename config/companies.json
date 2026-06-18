@@ -17244,6 +17244,12 @@
       "wd": "wd1",
       "site": "lateral-us",
       "name": "Bank of America"
+    },
+    {
+      "tenant": "guidehouse",
+      "wd": "wd1",
+      "site": "External",
+      "name": "Guidehouse"
     }
   ],
   "icims": [
