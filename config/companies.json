@@ -17250,6 +17250,12 @@
       "wd": "wd1",
       "site": "External",
       "name": "Guidehouse"
+    },
+    {
+      "tenant": "collaborative",
+      "wd": "wd1",
+      "site": "AllOpenings",
+      "name": "Cognizant"
     }
   ],
   "icims": [
