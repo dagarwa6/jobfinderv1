@@ -17314,6 +17314,30 @@
       "wd": "wd5",
       "site": "BMS",
       "name": "Bristol Myers Squibb"
+    },
+    {
+      "tenant": "mmc",
+      "wd": "wd1",
+      "site": "MMC",
+      "name": "Marsh McLennan"
+    },
+    {
+      "tenant": "comcast",
+      "wd": "wd5",
+      "site": "Comcast_Careers",
+      "name": "Comcast"
+    },
+    {
+      "tenant": "warnerbros",
+      "wd": "wd5",
+      "site": "global",
+      "name": "Warner Bros Discovery"
+    },
+    {
+      "tenant": "dukeenergy",
+      "wd": "wd1",
+      "site": "Search",
+      "name": "Duke Energy"
     }
   ],
   "icims": [
