@@ -17290,6 +17290,30 @@
       "wd": "wd5",
       "site": "crowdstrikecareers",
       "name": "CrowdStrike"
+    },
+    {
+      "tenant": "blackrock",
+      "wd": "wd1",
+      "site": "BlackRock_Professional",
+      "name": "BlackRock"
+    },
+    {
+      "tenant": "fmr",
+      "wd": "wd1",
+      "site": "FidelityCareers",
+      "name": "Fidelity"
+    },
+    {
+      "tenant": "pfizer",
+      "wd": "wd1",
+      "site": "PfizerCareers",
+      "name": "Pfizer"
+    },
+    {
+      "tenant": "bristolmyerssquibb",
+      "wd": "wd5",
+      "site": "BMS",
+      "name": "Bristol Myers Squibb"
     }
   ],
   "icims": [
