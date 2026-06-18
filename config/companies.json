@@ -17097,7 +17097,11 @@
     "wayfair",
     "wework",
     "whatfix",
-    "yardi"
+    "yardi",
+    {
+      "id": "Deloitte6",
+      "name": "Deloitte"
+    }
   ],
   "workable": [],
   "workday": [
@@ -17256,6 +17260,12 @@
       "wd": "wd1",
       "site": "AllOpenings",
       "name": "Cognizant"
+    },
+    {
+      "tenant": "genpact",
+      "wd": "wd108",
+      "site": "External_Careers",
+      "name": "Genpact"
     }
   ],
   "icims": [
@@ -17270,6 +17280,10 @@
     {
       "tenant": "careers-aon",
       "name": "Aon"
+    },
+    {
+      "tenant": "plcareers-zs",
+      "name": "ZS Associates"
     }
   ]
 }
