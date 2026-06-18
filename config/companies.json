@@ -17338,6 +17338,12 @@
       "wd": "wd1",
       "site": "Search",
       "name": "Duke Energy"
+    },
+    {
+      "tenant": "cardinalhealth",
+      "wd": "wd1",
+      "site": "EXT",
+      "name": "Cardinal Health"
     }
   ],
   "icims": [
