@@ -6,8 +6,8 @@ timeout_seconds = 30
 max_concurrent_per_platform = 5
 
 [filtering]
-max_post_age_days = 7
-min_match_score = 75
+max_post_age_days = 30   # was 7 — the 7-day cutoff discarded ~64% of scraped jobs
+min_match_score = 68     # was 75 — loosen title matching for higher recall
 high_confidence_score = 85
 
 [h1b]

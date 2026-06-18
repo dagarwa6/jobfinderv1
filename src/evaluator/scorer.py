@@ -244,7 +244,7 @@ class AIScorer:
                 # Thresholds intentionally live in code, not the prompt, to avoid drift.
                 if result.global_score >= 3.0:
                     result.recommended_action = "apply"
-                elif result.global_score >= 2.0:
+                elif result.global_score >= 1.5:  # was 2.0 — widen the actionable "consider" band
                     result.recommended_action = "consider"
                 else:
                     result.recommended_action = "skip"

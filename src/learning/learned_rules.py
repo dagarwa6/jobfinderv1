@@ -192,7 +192,14 @@ class LearnedRulesEngine:
 
         for r in rows:
             flag, cnt, avg, skip_rate, apply_rate = r
-            if skip_rate >= 0.90:
+            # Do NOT auto-skip on H1B flag alone. RED just means "company name
+            # didn't fuzzy-match DOL data" — a coarse signal with huge false-
+            # negative rates (name variants, newer/smaller sponsors). Auto-
+            # skipping RED was also self-reinforcing: skipped jobs get recorded
+            # as 'skip', which re-mined the same RED skip rule each run. Let the
+            # AI's sponsorship_likelihood dimension + the keyword filter judge
+            # sponsorship per-job instead. We still allow BOOST rules below.
+            if skip_rate >= 0.90 and flag not in ("RED", "YELLOW"):
                 confidence = min(skip_rate, 1.0) * min(cnt / 10, 1.0)
                 self._upsert_rule(
                     "skip", "h1b_flag", flag, cnt, avg, skip_rate, apply_rate,

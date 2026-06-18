@@ -42,7 +42,7 @@ class TitleMatcher:
         fuzzy_pass_threshold: Minimum score to pass as a final match.
     """
 
-    def __init__(self, config_path: str | Path, fuzzy_min_threshold: int = 65, fuzzy_pass_threshold: int = 70):
+    def __init__(self, config_path: str | Path, fuzzy_min_threshold: int = 60, fuzzy_pass_threshold: int = 65):
         with open(config_path) as f:
             config = json.load(f)
 
